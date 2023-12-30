@@ -108,4 +108,16 @@
 		</div>
 	</div>
 </body>
+	<script>
+		const fs = require('fs');
+
+		fs.readFile('count.txt', 'utf8', (err, data) => {
+		    if (err) {
+		        console.error(err);
+			return;
+		    }
+	            
+		    console.log(data);
+		});
+	</script>
 </html>
