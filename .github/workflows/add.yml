@@ -16,5 +16,5 @@ jobs:
         run: |
           echo "The count is ${{ github.event.inputs.count }}"
           chmod +x add.sh
-          bash add.sh ${{ github.event.inputs.count }}
+          bash scripts/add.sh ${{ github.event.inputs.count }}
         shell: bash
