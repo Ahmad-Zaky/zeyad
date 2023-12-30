@@ -27,5 +27,5 @@ jobs:
           git status
           git add count.txt
           git commit -m "Updated count.txt"
-          git push origin main
+          git push https://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@github.com/Ahmad-Zaky/zeyad.git
         shell: bash
