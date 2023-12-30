@@ -1,0 +1,15 @@
+name: Add Count
+
+on:
+  repository_dispatch:
+    types: [add-count]
+jobs:
+  add_count:
+    runs-on: ubuntu-latest  
+    steps:
+      - uses: actions/checkout@v3
+      - name: 
+        run: |
+         chmod +x add.sh
+         bash add.sh 1
+        shell: bash
