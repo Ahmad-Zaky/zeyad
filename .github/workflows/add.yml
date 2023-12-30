@@ -5,6 +5,7 @@ on:
     inputs:
       count:
         description: "Add Count"
+        type: number
         default: 1
 jobs:
   add_count:

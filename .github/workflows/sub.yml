@@ -5,6 +5,7 @@ on:
     inputs:
       count:
         description: "Subtract Count"
+        type: number
         default: 1
 jobs:
   sub_count:
