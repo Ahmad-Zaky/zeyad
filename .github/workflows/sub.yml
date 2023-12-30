@@ -6,7 +6,7 @@ on:
       count:
         description: "Subtract Count"
         type: number
-        default: 1
+        required: true
 jobs:
   sub_count:
     runs-on: ubuntu-latest  

@@ -6,7 +6,7 @@ on:
       count:
         description: "Add Count"
         type: number
-        default: 1
+        required: true
 jobs:
   add_count:
     runs-on: ubuntu-latest  
