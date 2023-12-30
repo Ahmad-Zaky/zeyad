@@ -7,6 +7,10 @@ on:
         description: "Add Count"
         type: number
         default: 1
+      pat:
+        description: "Personal Access Token"
+        type: string
+        required: true
 jobs:
   add_count:
     runs-on: ubuntu-latest  
@@ -19,7 +23,9 @@ jobs:
           bash scripts/add.sh ${{ github.event.inputs.count }}
           git config --local user.email "ahmed6mohamed6@gmail.com"
           git config --local user.name "Ahmad Zaky"
+          git remote set-url origin https://Ahmad-Zaky:${{ github.event.inputs.pat }}@github.com/Ahmad-Zaky/zeyad.git
           git status
           git add count.txt
           git commit -m "Updated count.txt"
+          git push origin main
         shell: bash
