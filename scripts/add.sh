@@ -11,6 +11,6 @@ IFS=$'\n' read -r -d '' COUNT < count.txt
 NUM1=$COUNT
 NUM2=$1
 
-sub $NUM1 $NUM2
+add $NUM1 $NUM2
 
 echo -n "$SUM" > count.txt
