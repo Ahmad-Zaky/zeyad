@@ -1,8 +1,11 @@
 name: Add Count
 
 on:
-  repository_dispatch:
-    types: [add-count]
+  workflow_dispatch:
+    inputs:
+      count:
+        description: "Add Count"
+        default: 1
 jobs:
   add_count:
     runs-on: ubuntu-latest  

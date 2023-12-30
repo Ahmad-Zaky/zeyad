@@ -1,8 +1,11 @@
 name: Subtract Count
 
 on:
-  repository_dispatch:
-    types: [sub-count]
+  workflow_dispatch:
+    inputs:
+      count:
+        description: "Subtract Count"
+        default: 1
 jobs:
   sub_count:
     runs-on: ubuntu-latest  
