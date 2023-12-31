@@ -1,4 +1,4 @@
-name: Add Count
+name: Notify
 
 on:
   workflow_dispatch:
@@ -12,7 +12,7 @@ on:
         type: string
         required: true
 jobs:
-  add_count:
+  notify:
     runs-on: ubuntu-latest  
     steps:
       - uses: m-b/mail-smtp@v4
