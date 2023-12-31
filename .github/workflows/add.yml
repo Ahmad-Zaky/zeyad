@@ -12,10 +12,16 @@ jobs:
     runs-on: ubuntu-latest  
     steps:
       - uses: actions/checkout@v3
-      - name: 
-        run: |          
+      - name: Add Count
+        run: |
           chmod +x scripts/add.sh
           bash scripts/add.sh ${{ github.event.inputs.count }}
-          chmod +x scripts/git.sh
-          bash scripts/git.sh
+
+      - name: Push changes using action
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
+          message: "Updated count.txt"
+
         shell: bash
