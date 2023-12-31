@@ -16,7 +16,8 @@ jobs:
         run: |
           chmod +x scripts/add.sh
           bash scripts/add.sh ${{ github.event.inputs.count }}
-          cat count.txt
+          git add count.txt
+          git commit -m "Updated count.txt"
         shell: bash
 
       - name: Push changes
