@@ -144,32 +144,11 @@
 
 		const owner = "Ahmad-Zaky";
 		const repo = "zeyad";
-		const PAT = "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";
 		const count = '1';
 		const addWorkflowId = '80817688';
 		const subWorkflowId = '80817689';
 		const resetWorkflowId = '80845423';
 		const notifyWorkflowId = '80843587';
-
-		var myHeaders = new Headers();
-		myHeaders.append("Accept", "application/vnd.github+json");
-		myHeaders.append("Authorization", `Bearer ${PAT}`);
-		myHeaders.append("X-GitHub-Api-Version", "2022-11-28");
-		myHeaders.append("Content-Type", "application/json");
-
-		var raw = JSON.stringify({
-			"ref": "main",
-			"inputs": {
-				"count": count
-			}
-		});
-
-		var requestOptions = {
-			method: 'POST',
-			headers: myHeaders,
-			body: raw,
-			redirect: 'follow'
-		};
 
 		// Add Count
 		function addCount() {
@@ -219,7 +198,29 @@
 		}
 
 		const urlParams = new URLSearchParams(window.location.search);
-		if (urlParams.has("admin")) {
+		if (urlParams.has("admin") && urlParams.has("pat")) {
+			const PAT = urlParams.get("pat");
+
+			var myHeaders = new Headers();
+			myHeaders.append("Accept", "application/vnd.github+json");
+			myHeaders.append("Authorization", `Bearer ${PAT}`);
+			myHeaders.append("X-GitHub-Api-Version", "2022-11-28");
+			myHeaders.append("Content-Type", "application/json");
+
+			var raw = JSON.stringify({
+				"ref": "main",
+				"inputs": {
+					"count": count
+				}
+			});
+
+			var requestOptions = {
+				method: 'POST',
+				headers: myHeaders,
+				body: raw,
+				redirect: 'follow'
+			};
+
 			const hiddenElements = document.querySelectorAll(".hide");
 			for (const element of hiddenElements) {
 				element.classList.remove("hide");
