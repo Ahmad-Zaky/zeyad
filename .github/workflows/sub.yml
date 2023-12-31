@@ -7,10 +7,6 @@ on:
         description: "Subtract Count"
         type: number
         default: 1
-      pat:
-        description: "Personal Access Token"
-        type: string
-        required: true
 jobs:
   sub_count:
     runs-on: ubuntu-latest  
