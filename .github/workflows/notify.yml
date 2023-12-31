@@ -1,0 +1,27 @@
+name: Add Count
+
+on:
+  workflow_dispatch:
+    inputs:
+      to:
+        description: "Notify"
+        type: string
+        required: true
+      msg:
+        description: "Notify Message"
+        type: string
+        required: true
+jobs:
+  add_count:
+    runs-on: ubuntu-latest  
+    steps:
+      - uses: m-b/mail-smtp@v4
+        with:
+          host: smtp.gmail.com
+          port: 465
+          username: ${{ secrets.SMTP_USERNAME }}
+          password: ${{ secrets.SMTP_PASSWORD }}
+          from: Quran Lessons
+          to: ${{ github.event.inputs.to }}
+          subject: Quran Lessons Notify
+          body: ${{ github.event.inputs.msg }}

@@ -18,7 +18,7 @@ jobs:
           bash scripts/sub.sh ${{ github.event.inputs.count }}
         shell: bash
 
-      - name: Push changes using action
+      - name: Push changes
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
