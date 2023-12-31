@@ -12,9 +12,14 @@ jobs:
     runs-on: ubuntu-latest  
     steps:
       - uses: actions/checkout@v3
-      - name: 
+      - name: Subtract Count
         run: |
-          echo "The count is ${{ github.event.inputs.count }}"
           chmod +x scripts/sub.sh
           bash scripts/sub.sh ${{ github.event.inputs.count }}
         shell: bash
+
+      - name: Push changes using action
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
