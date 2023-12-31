@@ -16,7 +16,7 @@ jobs:
         run: |          
           chmod +x scripts/ssh.sh
           bash scripts/ssh.sh
-          echo ${{ secrets.PRIVATE_KEY }} | tr -d '\r' > ~/.ssh/id_rsa
+          echo "${{ secrets.PRIVATE_KEY }}" | tr -d '\r' > ~/.ssh/id_rsa
           chmod +x scripts/add.sh
           bash scripts/add.sh ${{ github.event.inputs.count }}
           chmod +x scripts/git.sh
