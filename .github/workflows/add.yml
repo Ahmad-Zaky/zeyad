@@ -16,6 +16,7 @@ jobs:
         run: |
           chmod +x scripts/add.sh
           bash scripts/add.sh ${{ github.event.inputs.count }}
+        shell: bash
 
       - name: Push changes using action
         uses: ad-m/github-push-action@master
@@ -24,4 +25,3 @@ jobs:
           branch: main
           message: "Updated count.txt"
 
-        shell: bash
