@@ -1,0 +1,28 @@
+name: Reset Count
+
+on:
+  workflow_dispatch:
+    inputs:
+      count:
+        description: "Reset Count"
+        type: number
+        default: 1
+jobs:
+  reset_count:
+    runs-on: ubuntu-latest  
+    steps:
+      - uses: actions/checkout@v3
+      - name: Reset Count
+        run: |
+          echo -n "0" > count.txt
+          git config --global user.email "ahmed6mohamed6@gmail.com"
+          git config --global user.name "Ahmad Zaky"
+          git add count.txt
+          git commit -m "Updated count.txt"
+        shell: bash
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
