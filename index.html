@@ -150,7 +150,7 @@
 		const resetWorkflowId = '80845423';
 		const notifyWorkflowId = '80843587';
 		const email = "ahmed6mohamed6@gmail.com";
-		const msg = `Quran Lessons has Reaced ${lessonsCount} lessons`;
+		const msg = `Quran Lessons has Reaced {0} lessons`;
 
 		// Add Count
 		function addCount() {
@@ -182,7 +182,7 @@
 				"ref": "main",
 				"inputs": {
 					"to": email,
-					"msg": msg
+					"msg": formatString(msg, lessonsCount)
 				}
 			});
 
@@ -243,6 +243,12 @@
 			document.getElementById("notify").addEventListener("click", function() {
 				notify()
 			});
+		}
+
+		const formatString = (template, ...args) => {
+		  return template.replace(/{([0-9]+)}/g, function (match, index) {
+		    return typeof args[index] === 'undefined' ? match : args[index];
+		  });
 		}
 	</script>
 </html>
