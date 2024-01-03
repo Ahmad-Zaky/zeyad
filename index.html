@@ -255,7 +255,7 @@
 
 			const token = urlParams.get("token");
 
-			const parts = token.split("#");
+			const parts = token.split("@");
 			if (parts.length !== 2) {
 				return;
 			}
