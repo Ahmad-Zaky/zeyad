@@ -138,10 +138,6 @@
 </body>
 	<script>
 		var lessonsCount = 0;
-		fetch('./count.txt?time='+Date.now())
-		  .then(response => response.text())
-		  .then(count => document.getElementById('count').textContent = lessonsCount = count);
-
 		const owner = "Ahmad-Zaky";
 		const repo = "zeyad";
 		const count = '1';
@@ -260,6 +256,10 @@
 				return;
 			}
 			
+			fetch('./count.txt?time='+Date.now())
+			  .then(response => response.text())
+			  .then(count => document.getElementById('count').textContent = lessonsCount = count);
+
 			const countLinkToken = parts[0];
 			const sheetFrameToken = parts[1];
 
