@@ -125,14 +125,14 @@
 			<h1 class="center">Zeyad Qur'an Follow up</h1>
 			<h1 class="center">
 				<span id="sub" class="circled-shadow hide">-</span>
-				<a id="count" href="https://docs.google.com/spreadsheets/d/1qpqnAKeXf1B4reFG5JMkpyewtuECPsVOXmIcX3TblNg/edit?usp=sharing" style="text-decoration:none" class="primary-color" target="_blank">0</a>
+				<a id="count" href="" style="text-decoration:none" class="primary-color" target="_blank">0</a>
 				<span id="add" class="circled-shadow hide">+</span>
 			</h1>
 			<div class="center">
 				<i id="reset" class="fa fa-undo circled-shadow hide" style="font-size:36px; vertical-align: super;"></i>
 				<i id="notify" class="fa fa-bell circled-shadow hide" style="font-size:36px; vertical-align: super;"></i>
 			</div>
-			<iframe class="sheet w-100 h-100 shadow border-rd-5 mt-1" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ5cnZj92_cimp5057aHeU_URHCMkMziaMMIo-JJ97kUTQFrsb6054ovqpd-KMu6J5sOcPb3Wvz1LA2/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+			<iframe id="sheet-frame" class="sheet w-100 h-100 shadow border-rd-5 mt-1" src=""></iframe>
 		</div>
 	</div>
 </body>
@@ -151,7 +151,9 @@
 		const notifyWorkflowId = '80843587';
 		const email = "mshaaban088@gmail.com";
 		const msg = `Quran Lessons has Reaced {0} lessons`;
-
+		
+		login();
+		
 		// Add Count
 		function addCount() {
 			fetch(`https://api.github.com/repos/${owner}/${repo}/actions/workflows/${addWorkflowId}/dispatches`, requestOptions)
@@ -243,6 +245,36 @@
 			document.getElementById("notify").addEventListener("click", function() {
 				notify()
 			});
+		}
+
+		const login = () => {
+			const urlParams = new URLSearchParams(window.location.search);
+			if (! urlParams.has("token")) {
+				return;
+			}
+
+			const token = urlParams.get("token");
+
+			const parts = token.split("#");
+			if (part.length !== 2) {
+				return;
+			}
+			
+			const countLinkToken = parts[0];
+			const sheetFrameToken = parts[1];
+
+			setIframeSrc(countLinkToken);
+			setCountHref(sheetFrameToken);
+		}
+
+		// 2PACX-1vQ5cnZj92_cimp5057aHeU_URHCMkMziaMMIo-JJ97kUTQFrsb6054ovqpd-KMu6J5sOcPb3Wvz1LA2
+		const setIframeSrc = (countLinkToken) => {
+			document.getElementById("sheet-frame").src = `https://docs.google.com/spreadsheets/d/e/${countLinkToken}/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false`;
+		}
+
+		// 1qpqnAKeXf1B4reFG5JMkpyewtuECPsVOXmIcX3TblNg
+		const setCountHref = (sheetFrameToken) => {
+			document.getElementById("count").href = `https://docs.google.com/spreadsheets/d/${sheetFrameToken}/edit?usp=sharing`;
 		}
 
 		const formatString = (template, ...args) => {
