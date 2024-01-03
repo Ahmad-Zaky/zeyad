@@ -268,12 +268,12 @@
 		}
 
 		// 2PACX-1vQ5cnZj92_cimp5057aHeU_URHCMkMziaMMIo-JJ97kUTQFrsb6054ovqpd-KMu6J5sOcPb3Wvz1LA2
-		const setIframeSrc = (countLinkToken) => {
+		function setIframeSrc(countLinkToken) {
 			document.getElementById("sheet-frame").src = `https://docs.google.com/spreadsheets/d/e/${countLinkToken}/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false`;
 		}
 
 		// 1qpqnAKeXf1B4reFG5JMkpyewtuECPsVOXmIcX3TblNg
-		const setCountHref = (sheetFrameToken) => {
+		function setCountHref(sheetFrameToken) {
 			document.getElementById("count").href = `https://docs.google.com/spreadsheets/d/${sheetFrameToken}/edit?usp=sharing`;
 		}
 
