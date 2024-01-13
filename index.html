@@ -266,22 +266,22 @@
 			const countLinkToken = parts[0];
 			const sheetFrameToken = parts[1];
 
-			setIframeSrc(countLinkToken);
-			setCountHref(sheetFrameToken);
+			setCountHref(countLinkToken);
+			setIframeSrc(sheetFrameToken);
 		}
 
-		function setIframeSrc(countLinkToken) {
+		function setCountHref(countLinkToken) {
+			const element = document.getElementById("count");
+			element.href = `https://docs.google.com/spreadsheets/d/${countLinkToken}/edit?usp=sharing`;
+			element.classList.remove("hide");
+		}
+
+		function setIframeSrc(sheetFrameToken) {
 			const element = document.getElementById("sheet-frame");
-			element.src = `https://docs.google.com/spreadsheets/d/e/${countLinkToken}/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false`;
+			element.src = `https://docs.google.com/spreadsheets/d/e/${sheetFrameToken}/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false`;
 			element.classList.remove("hide");
 		}
 		
-		function setCountHref(sheetFrameToken) {
-			const element = document.getElementById("count");
-			element.href = `https://docs.google.com/spreadsheets/d/${sheetFrameToken}/edit?usp=sharing`;
-			element.classList.remove("hide");
-		}
-
 		const formatString = (template, ...args) => {
 		  return template.replace(/{([0-9]+)}/g, function (match, index) {
 		    return typeof args[index] === 'undefined' ? match : args[index];
