@@ -131,6 +131,9 @@
 			<div class="center">
 				<i id="reset" class="fa fa-undo circled-shadow hide" style="font-size:36px; vertical-align: super;"></i>
 				<i id="notify" class="fa fa-bell circled-shadow hide" style="font-size:36px; vertical-align: super;"></i>
+				<a id="repo" href="https://github.com/Ahmad-Zaky/zeyad" style="text-decoration:none" class="primary-color hide" target="_blank">
+					<i class="fa fa-github circled-shadow" style="font-size:36px; vertical-align: super;"></i>
+				</a>
 			</div>
 			<iframe id="sheet-frame" class="sheet w-100 h-100 shadow border-rd-5 mt-1 hide" src=""></iframe>
 		</div>
@@ -267,14 +270,12 @@
 			setCountHref(sheetFrameToken);
 		}
 
-		// 2PACX-1vQ5cnZj92_cimp5057aHeU_URHCMkMziaMMIo-JJ97kUTQFrsb6054ovqpd-KMu6J5sOcPb3Wvz1LA2
 		function setIframeSrc(countLinkToken) {
 			const element = document.getElementById("sheet-frame");
 			element.src = `https://docs.google.com/spreadsheets/d/e/${countLinkToken}/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false`;
 			element.classList.remove("hide");
 		}
-
-		// 1qpqnAKeXf1B4reFG5JMkpyewtuECPsVOXmIcX3TblNg
+		
 		function setCountHref(sheetFrameToken) {
 			const element = document.getElementById("count");
 			element.href = `https://docs.google.com/spreadsheets/d/${sheetFrameToken}/edit?usp=sharing`;
