@@ -49,8 +49,8 @@
 			font-size: 55px;
 			cursor: pointer;
 			user-select: none;
-			width: 50px;
-			height: 50px;
+			width: 60px;
+			height: 60px;
 			display: inline-block;
 			border-radius: 50%;
   			box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
@@ -58,7 +58,7 @@
 
 		.sheet {
 			width: 1000px;
-			height: 30em;
+			height: 25em;
 		}
 
 		.shadow {
@@ -69,6 +69,13 @@
 				0 22.3px 17.9px rgba(0, 0, 0, 0.072),
 				0 41.8px 33.4px rgba(0, 0, 0, 0.086),
 				0 100px 80px rgba(0, 0, 0, 0.12);
+		}
+
+		.icon {
+			font-size:36px;
+			vertical-align: middle;
+			text-align: center;
+			line-height: 65px;
 		}
 		
 		.mt-1 {
@@ -123,17 +130,25 @@
 	<div class="container h-100">
 		<div class="primary-color primary-font-size">
 			<h1 class="center">Zeyad Qur'an Follow up</h1>
-			<h1 class="center">
+			<div class="center">
 				<span id="sub" class="circled-shadow hide">-</span>
 				<a id="count" href="" style="text-decoration:none" class="primary-color hide" target="_blank">0</a>
 				<span id="add" class="circled-shadow hide">+</span>
-			</h1>
+			</div>
 			<div class="center">
-				<i id="reset" class="fa fa-undo circled-shadow hide" style="font-size:36px; vertical-align: super;"></i>
-				<i id="notify" class="fa fa-bell circled-shadow hide" style="font-size:36px; vertical-align: super;"></i>
-				<a id="repo" href="https://github.com/Ahmad-Zaky/zeyad" style="text-decoration:none" class="primary-color hide" target="_blank">
-					<i class="fa fa-github circled-shadow" style="font-size:36px; vertical-align: super;"></i>
-				</a>
+				<div id="reset" class="circled-shadow hide icon">
+					<i class="fa fa-undo"></i>
+				</div>
+				
+				<div id="notify" class="circled-shadow hide icon">
+					<i class="fa fa-bell"></i>
+				</div>
+				
+				<div id="repo" class="circled-shadow hide icon">
+					<a href="https://github.com/Ahmad-Zaky/zeyad" style="text-decoration:none" class="primary-color hide" target="_blank">
+						<i class="fa fa-github"></i>
+					</a>
+				</div>
 			</div>
 			<iframe id="sheet-frame" class="sheet w-100 h-100 shadow border-rd-5 mt-1 hide" src=""></iframe>
 		</div>
